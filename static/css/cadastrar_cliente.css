@@ -1,0 +1,9 @@
+div{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    margin: 30px 30px 30px 30px;
+}
+
+.btn{
+    min-width: 78px;
+}
