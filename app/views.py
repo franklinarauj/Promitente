@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from app.forms import ClienteForm
+from app.forms import ClienteForm, AtualizarClienteForm
 from app.models import TB_Cliente
 
 
@@ -26,7 +26,7 @@ def pesquisar_clientes(request):
 def atualizar_cadastro(request, cpf):
     dados = {}
     cliente = TB_Cliente.objects.get(cpf=cpf)
-    form = ClienteForm(request.POST or None, instance=cliente)
+    form = AtualizarClienteForm(request.POST or None, instance=cliente)
     dados['cliente'] = cliente
     dados['form'] = form
     if form.is_valid():
@@ -39,3 +39,8 @@ def excluir_cliente(request, cpf):
     cliente = TB_Cliente.objects.get(cpf=cpf)
     cliente.delete()
     return redirect('/pesquisar-clientes/')
+
+
+def enviar_mensagem(request, cpf):
+    cliente = TB_Cliente.objects.get(cpf=cpf)
+    return render(request, 'app/enviar-mensagem.html', {'cliente': cliente})

@@ -24,5 +24,6 @@ urlpatterns = [
     path('cadastrar-cliente/', views.cadastrar_cliente, name='cadastrar-cliente'),
     path('pesquisar-clientes/', views.pesquisar_clientes, name='pesquisar-clientes'),
     path('atualizar-cadastro/<int:cpf>/', views.atualizar_cadastro, name='atualizar-cadastro'),
-    path('excluir-cliente/<int:cpf>/', views.excluir_cliente, name='excluir-cliente')
+    path('excluir-cliente/<int:cpf>/', views.excluir_cliente, name='excluir-cliente'),
+    path('enviar-mensagem/<int:cpf>/', views.enviar_mensagem, name='enviar-mensagem')
 ]
